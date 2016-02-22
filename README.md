@@ -1,7 +1,7 @@
 # Redsocks transparent proxy for docker
 
 # Usage
-Feel free to use docker-compose 1.6 sample excerpt to include in your launch script. Do not forget to insert on of your services the dependency to redsocks. 
+Feel free to use docker-compose 1.6 sample excerpt. Do not forget to insert on of your services the dependency to redsocks. 
 ```
 version: 2.0
 
