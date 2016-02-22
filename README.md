@@ -3,7 +3,7 @@
 # Usage
 Feel free to use docker-compose 1.6 sample excerpt. Do not forget to insert on of your services the dependency to redsocks. 
 ```
-version: 2.0
+version: '2'
 
 services:
 
