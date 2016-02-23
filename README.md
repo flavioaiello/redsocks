@@ -8,7 +8,7 @@ version: '2'
 services:
 
     redsocks:
-        image: gravityplatform/redsocks
+        image: serverking/redsocks:latest
         privileged: true
         net: "host"
         environment:
