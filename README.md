@@ -25,5 +25,5 @@ services:
 - [x] Catch signals to remove iptables chain
 - [x] Switched from debian to alpine linux
 - [x] Making relays configurable
-- [ ] Waiting for redsocks being able as stable apk on alpine linux
+- [ ] Waiting for stable redsocks on alpine linux
 - [ ] Introduce supervisor to start redsocks and switch signal handling to it
