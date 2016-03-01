@@ -3,12 +3,12 @@
 # Usage
 Feel free to use docker-compose 1.6 sample excerpt. Do not forget to insert on of your services the dependency to redsocks. 
 ```
-version: 2.0
+version: '2'
 
 services:
 
     redsocks:
-        image: gravityplatform/redsocks
+        image: serverking/redsocks:latest
         privileged: true
         net: "host"
         environment:
@@ -25,5 +25,5 @@ services:
 - [x] Catch signals to remove iptables chain
 - [x] Switched from debian to alpine linux
 - [x] Making relays configurable
-- [ ] Waiting for redsocks being able as stable apk on alpine linux
+- [ ] Waiting for stable redsocks on alpine linux
 - [ ] Introduce supervisor to start redsocks and switch signal handling to it
