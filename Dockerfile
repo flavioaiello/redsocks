@@ -7,7 +7,3 @@ RUN echo http://dl-4.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositorie
     rm -rf /var/cache/apk/*
 
 ENTRYPOINT ["/usr/local/bin/redsocks.sh"]
-
-
-
-
