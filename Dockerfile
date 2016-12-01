@@ -1,9 +1,13 @@
-FROM alpine:latest
+FROM alpine:edge
+ARG TAG
+LABEL TAG=${TAG}
 
 ADD src /
 
-RUN echo "@community http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
-    apk add --update redsocks@community iptables && \
-    rm -rf /var/cache/apk/*
+RUN apk update && \
+    apk upgrade && \
+    apk add redsocks iptables bash && \
+    rm -rf /var/cache/apk/* && \
+    chmod +x /usr/local/bin/redsocks.sh
 
 ENTRYPOINT ["/usr/local/bin/redsocks.sh"]

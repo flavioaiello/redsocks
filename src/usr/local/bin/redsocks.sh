@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set env vars to config
-sed -i -e "s/\${HTTP_RELAY}/${HTTP_RELAY}/g" -e "s/\${TCP_RELAY}/${TCP_RELAY}/g" tmp/redsocks.conf
+sed -i -e "s/\${HTTP_RELAY}/${HTTP_RELAY}/g" -e "s/\${HTTP_RELAY_PORT}/${HTTP_RELAY_PORT}/g" -e "s/\${TCP_RELAY}/${TCP_RELAY}/g" -e "s/\${TCP_RELAY_PORT}/${TCP_RELAY_PORT}/g" tmp/redsocks.conf
 
 # SIGTERM-handler
 term_handler() {
@@ -24,7 +24,7 @@ iptables-save | grep -v REDSOCKS | iptables-restore
 iptables -t nat -N REDSOCKS
 
 # Set proxy exceptions for docker0 bridge
-iptables -t nat -A REDSOCKS -d 172.17.0.0/16  -j RETURN
+iptables -t nat -A REDSOCKS -d 172.16.0.0/12 -j RETURN
 iptables -t nat -A REDSOCKS -d 10.1.0.0/16 -j RETURN
 iptables -t nat -A REDSOCKS -d 10.189.0.0/16 -j RETURN
 iptables -t nat -A REDSOCKS -d 127.0.0.0/24 -j RETURN
@@ -33,12 +33,12 @@ iptables -t nat -A REDSOCKS -d 127.0.0.0/24 -j RETURN
 iptables -t nat -A REDSOCKS -p tcp --dport 80 -j REDIRECT --to-ports 12345
 iptables -t nat -A REDSOCKS -p tcp -j REDIRECT --to-ports 12346
 
-# Finally we tell iptables to use the ‘REDSOCKS’ chain for all outgoing connection in the network interface ‘eth0′.
-iptables -t nat -A PREROUTING -i docker0 -p tcp -j REDSOCKS
+# Finally we tell iptables to use the ‘REDSOCKS’ chain for all docker traffic
+iptables -t nat -A PREROUTING -s 172.16.0.0/12 -p tcp -j REDSOCKS
 
 # Starting redsocks
 echo "Starting redsocks..."
-/usr/sbin/redsocks -c /tmp/redsocks.conf &
+/usr/bin/redsocks -c /tmp/redsocks.conf
 pid="$!"
 
 # wait indefinetely
