@@ -13,9 +13,9 @@ services:
     privileged: true
     network_mode: "host"
     environment:
-      - HTTP_RELAY=171.25.91.108
+      - HTTP_RELAY=123.123.123.123
       - HTTP_RELAY_PORT=8080
-      - TCP_RELAY=171.25.91.108
+      - TCP_RELAY=123.123.123.123
       - TCP_RELAY_PORT=8080
     restart: always
 
