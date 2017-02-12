@@ -1,10 +1,9 @@
 FROM alpine:edge
-ARG TAG
-LABEL TAG=${TAG}
 
-ADD src /
+COPY files /
 
-RUN apk update && \
+RUN set -ex && \
+    apk update && \
     apk upgrade && \
     apk add redsocks iptables bash && \
     rm -rf /var/cache/apk/* && \
