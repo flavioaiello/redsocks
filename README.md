@@ -2,7 +2,6 @@
 Redirects whole docker network traffic through a http, optionally trough a https proxy. 
 
 # Docker compose sample excerpt
-Do not forget to insert on of your services the dependency to redsocks. 
 ```
 version: '2'
 
