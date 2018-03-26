@@ -1,6 +1,6 @@
-[![Docker Build Status](https://img.shields.io/docker/build/flavioaiello/redsocks.svg?style=for-the-badge)](https://hub.docker.com/r/flavioaiello/redsocks/)
-[![Docker Stars](https://img.shields.io/docker/stars/flavioaiello/redsocks.svg?style=for-the-badge)](https://hub.docker.com/r/flavioaiello/redsocks/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/flavioaiello/redsocks.svg?style=for-the-badge)](https://hub.docker.com/r/flavioaiello/redsocks/)
+[![Docker Build Status](https://img.shields.io/docker/build/flavioaiello/redsocks.svg)](https://hub.docker.com/r/flavioaiello/redsocks/)
+[![Docker Stars](https://img.shields.io/docker/stars/flavioaiello/redsocks.svg)](https://hub.docker.com/r/flavioaiello/redsocks/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/flavioaiello/redsocks.svg)](https://hub.docker.com/r/flavioaiello/redsocks/)
 
 # Redsocks transparent proxy for docker
 Redirects whole docker network traffic through a http, optionally trough a https proxy. 
